@@ -1,4 +1,4 @@
-package com.example.translater
+package com.example.translator
 
 import android.app.Application
 import com.facebook.stetho.Stetho

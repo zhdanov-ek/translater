@@ -1,6 +1,6 @@
-package com.example.translater.api
+package com.example.translator.api
 
-import com.example.translater.model.TranslationResponse
+import com.example.translator.model.TranslationResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

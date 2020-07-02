@@ -1,4 +1,4 @@
-package com.example.translater
+package com.example.translator
 
 import org.junit.Test
 

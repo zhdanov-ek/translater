@@ -1,7 +1,7 @@
-package com.example.translater.api
+package com.example.translator.api
 
 import android.util.Log
-import com.example.translater.BuildConfig
+import com.example.translator.BuildConfig
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.CacheControl
 import okhttp3.Interceptor

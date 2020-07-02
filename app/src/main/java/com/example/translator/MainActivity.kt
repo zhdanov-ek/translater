@@ -1,4 +1,4 @@
-package com.example.translater
+package com.example.translator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.translater.api.AppRest
-import com.example.translater.model.TranslationResponse
+import com.example.translator.api.AppRest
+import com.example.translator.model.TranslationResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.translater.api
+package com.example.translator.api
 
 object AppRest {
     private val BASE_URL = "https://google-translate1.p.rapidapi.com"
