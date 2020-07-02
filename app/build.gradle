@@ -12,6 +12,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        buildConfigField('String', 'X_RAPIDAPI_KEY', getRapidApiKey())
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,6 +25,19 @@ android {
     }
 }
 
+
+def getRapidApiKey() {
+    def keysFile = file("keys.properties")
+    def keysProperties = new Properties()
+    keysProperties.load(new FileInputStream(keysFile))
+    def rapidApiKey = keysProperties['X_RAPIDAPI_KEY']
+    return rapidApiKey
+}
+
+
+def retrofit_version = "2.6.2"
+def okhttp_version = "4.2.1"
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -33,5 +47,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // OhHttp3
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
 }

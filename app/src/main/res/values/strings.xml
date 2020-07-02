@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Translater</string>
+    <string name="app_name">Translator</string>
+    <string name="ok">OK</string>
+    <string name="enter_english_text">Enter english text</string>
 </resources>
