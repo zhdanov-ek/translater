@@ -6,13 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import com.example.translator.api.AppRest
-import com.example.translator.model.TranslationResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -38,8 +32,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 translateTextView.text = it
             })
 
-        viewModel.isTranslating().observe(this,
-            Observer { showProgress(it)})
+        viewModel.isDoingApiRequest().observe(this,
+            Observer {
+                showProgress(it)
+            })
     }
 
     override fun onClick(v: View?) {
