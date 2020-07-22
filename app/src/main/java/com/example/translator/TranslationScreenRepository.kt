@@ -14,29 +14,24 @@ class TranslationScreenRepository: ApiResultHandler {
     var translation: MutableLiveData<String?> = MutableLiveData()
     var doingApiRequest: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun translate(text: String?): MutableLiveData<String?> {
-        text?.let { performTranslate(text) }
-        return translation
-    }
-
-    private fun performTranslate(text: String) {
+    fun translate(text: String) {
         doingApiRequest.value = true
         AppRest.api.translate(SOURCE_LANG, text, TARGET_LANG)
             .enqueue(object : BaseApiCallback<TranslationResponse>(this) { })
-    }
-
-    override fun onApiRequestError(errorMessage: String?) {
-        doingApiRequest.value = false
     }
 
     fun isDoingApiRequest(): LiveData<Boolean> {
         return doingApiRequest
     }
 
+    override fun onApiRequestError(errorMessage: String?) {
+        doingApiRequest.value = false
+    }
+
     override fun onApiRequestSuccess(response: Any?) {
         doingApiRequest.value = false
         if ((response as Response<*>).body() is TranslationResponse) {
-            translation.postValue(extractTranslation(response.body() as TranslationResponse))
+            translation.value = (extractTranslation(response.body() as TranslationResponse))
         }
     }
 
